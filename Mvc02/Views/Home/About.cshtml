@@ -1,7 +1,26 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+
+<div class="row">
+    <div class="col-4">
+        <h4>About us</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0167374183725!2d-122.39753198494763!3d37.78964751907728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808581d00b2b5a97%3A0x3237b41247716cbe!2sFacebook!5e0!3m2!1ssv!2sse!4v1549531850610" width="1000" height="300" frameborder="0" style="border:medium" allowfullscreen></iframe>
+        <br />
+        <br />
+        <strong>Adress: Fina gatan 1 </strong> <br />
+        <strong>111 111 San Francisco</strong> <br />
+        <strong><p1>The Trump Land</p1></strong> <br />
+
+        <br />
+    </div>
+    <div class="col-4">
+        <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Contact")'">Contact us</button>
+        <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Jobs")'">Jobs</button>
+    </div>
+    <div class="col-4">
+    </div>
+
+</div>
 
 

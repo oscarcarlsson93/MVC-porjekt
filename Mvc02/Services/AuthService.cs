@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Mvc02.Models.ViewModels;
@@ -52,7 +53,6 @@ namespace Mvc02.Services
                 await _roleManager.CreateAsync(newRole);
             
         }
-
-        // din kod här
+      
     }
 }

@@ -17,7 +17,7 @@ namespace Mvc02.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "About us";
 
             return View();
         }
@@ -38,6 +38,10 @@ namespace Mvc02.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        public IActionResult Jobs()
+        {
+            return View();
         }
     }
 }
