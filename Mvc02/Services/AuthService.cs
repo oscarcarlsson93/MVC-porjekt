@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Mvc02.Models.ViewModels;
@@ -39,11 +38,17 @@ namespace Mvc02.Services
             await _userManager.AddToRoleAsync(user, addrole.Role);
         }
 
-        //internal Task<List<IdentityUser>> GetAllUsers()
-        //{
-        //    List<IdentityUser> users = await _userManager.Users.ToListAsync();
-        //    users[0].
-        //}
+        internal async Task<List<IdentityUser>> GetAllUsers()
+        {
+
+            List<IdentityUser> users = await _userManager.Users.ToListAsync();
+           var hejsan =  await _userManager.GetRolesAsync(users[0]);
+            List<string> rolesList = new List<string>();
+            //rolesList.Add(hejsan);
+            //return  users[0].Email.ToString();
+            return users;
+
+        }
 
         internal async Task CreateRolesAsync(string role)
         {
@@ -53,6 +58,7 @@ namespace Mvc02.Services
                 await _roleManager.CreateAsync(newRole);
             
         }
-      
+
+        // din kod här
     }
 }
