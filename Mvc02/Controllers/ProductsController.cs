@@ -26,7 +26,11 @@ namespace Mvc02.Controllers
             return View(xxx);
         }
 
-        
+        public async Task<IActionResult> Search(string q)
+        {
+            var xxx = await _context.Product.Include(x => x.Category).Where(x => x.Name == q).ToListAsync();
+            return View(xxx);
+        }
 
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -50,12 +54,12 @@ namespace Mvc02.Controllers
         public IActionResult Create()
         {
 
-            var listofcategories = _context.Categories;
+            var listofCategory = _context.Categories;
 
             var vm = new CreateProductVm();
 
             var list = new List<SelectListItem>();
-            foreach (var category in listofcategories)
+            foreach (var category in listofCategory)
             {
                 list.Add(new SelectListItem
                 {

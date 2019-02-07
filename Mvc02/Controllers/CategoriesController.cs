@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Mvc02.Data;
 using Mvc02.Models;
@@ -26,6 +23,11 @@ namespace Mvc02.Views
         public async Task<IActionResult> Index()
         {
             return View(await _context.Categories.ToListAsync());
+        }
+        public async Task<IActionResult> Search(string q)
+        {
+            var xxx = await _context.Categories.Where(x => x.Name == q).ToListAsync();
+            return View(xxx);
         }
 
         public async Task<IActionResult> ShowAllConnectedProducts(int? id)
