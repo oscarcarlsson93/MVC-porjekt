@@ -40,6 +40,12 @@
                     <li><a asp-area="" asp-controller="Categories" asp-action="Index">Categories</a></li>
                     @*@if (User.IsInRole("Admin"))
                     {
+<<<<<<< HEAD
+
+                    }*@
+                    <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
+=======
+>>>>>>> 22f575fa1325c8d6bca9d97387b4cf0b823d49b4
 
                     }*@
                     <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>

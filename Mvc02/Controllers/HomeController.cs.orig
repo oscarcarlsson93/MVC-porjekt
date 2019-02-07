@@ -54,9 +54,9 @@ namespace Mvc02.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public IActionResult Jobs()
-        {
-            return View();
-        }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 22f575fa1325c8d6bca9d97387b4cf0b823d49b4
     }
 }

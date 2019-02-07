@@ -26,7 +26,12 @@ namespace Mvc02.Controllers
             return View(xxx);
         }
 
-        
+        public async Task<IActionResult> Search(string q)
+        {
+            var xxx = await _context.Product.Include(x => x.Category).Where(x => x.Name == q).ToListAsync();
+            return View(xxx);
+        }
+
 
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -99,7 +104,6 @@ namespace Mvc02.Controllers
             {
                 return NotFound();
             }
-            
 
             var viewmodel = new CreateProductVm()
             {
@@ -177,5 +181,8 @@ namespace Mvc02.Controllers
         {
             return _context.Product.Any(e => e.Id == id);
         }
+
+        //GET: Products when searched
+
     }
 }
