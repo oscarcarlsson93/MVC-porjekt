@@ -44,7 +44,7 @@ namespace Mvc02.Controllers
 
         public async Task<IActionResult> UserInfo()
         {
-            List<IdentityUser> allUsers = await _auth.GetAllUsers();
+            //List<IdentityUser> allUsers = await _auth.GetAllUsers();
 
             return View();
         }

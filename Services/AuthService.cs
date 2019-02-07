@@ -38,17 +38,11 @@ namespace Mvc02.Services
             await _userManager.AddToRoleAsync(user, addrole.Role);
         }
 
-        internal async Task<List<IdentityUser>> GetAllUsers()
-        {
-
-            List<IdentityUser> users = await _userManager.Users.ToListAsync();
-           var hejsan =  await _userManager.GetRolesAsync(users[0]);
-            List<string> rolesList = new List<string>();
-            //rolesList.Add(hejsan);
-            //return  users[0].Email.ToString();
-            return users;
-
-        }
+        //internal Task<List<IdentityUser>> GetAllUsers()
+        //{
+        //    List<IdentityUser> users = await _userManager.Users.ToListAsync();
+        //    users[0].
+        //}
 
         internal async Task CreateRolesAsync(string role)
         {
