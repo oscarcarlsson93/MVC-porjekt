@@ -9,5 +9,7 @@ namespace Mvc02.Models.ViewModels
     public class UserTableVm
     {
         public List<UserWithRoles> Rows { get; set; } = new List<UserWithRoles>();
+     
+
     }
 }

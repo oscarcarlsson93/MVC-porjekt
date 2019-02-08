@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -31,12 +32,11 @@ namespace Mvc02.Views
             return View(xxx);
         }
 
-        public async Task<IActionResult> ShowAllConnectedProducts(int? name)
+        public async Task<IActionResult> ShowAllConnectedProducts(int? id)
         {
-            //var xxx = await _context.Product.Where(x => x.Id == name).Select(x => x.Name).ToListAsync();
-                //Select(x => x.Name).Where(a => a;
-            //var xxx = await _context.Product.Select(x => x.Category).Where(x => x.Id == name).ToListAsync();
-            return View();
+            var yyy = await _context.Product.Where(x => x.CategoryId == id).ToListAsync();
+    
+            return View(yyy);
         }
 
         // GET: Categories/Details/5
