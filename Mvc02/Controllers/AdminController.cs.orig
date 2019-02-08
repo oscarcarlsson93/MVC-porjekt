@@ -64,6 +64,10 @@ namespace Mvc02.Controllers
 
             return View(vm);
         }
+<<<<<<< HEAD
+      
+        
+=======
 
         public async Task<IActionResult> Edit(string email)
         {
@@ -80,5 +84,6 @@ namespace Mvc02.Controllers
             return View(user);
 
         }
+>>>>>>> a9a325fec55357ec0474835f2fb1f76773fda999
     }
 }
