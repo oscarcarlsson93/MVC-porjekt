@@ -9,6 +9,10 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<p>
+    Sort by: <a asp-action="Index" asp-route-id="1">Name</a> | <a asp-action="Index" asp-route-id="2">Category</a> | <a asp-action="Index" asp-route-id="3">Price</a>
+</p>
+
 <form method="get" asp-action="Search">
     <div>
         <input type="search" name="q" placeholder="Search for product..." size="30" />

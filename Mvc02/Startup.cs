@@ -28,13 +28,7 @@ namespace Mvc02
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var lockoutOption = new LockoutOptions()
-            {
-                AllowedForNewUsers = true,
-                DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2),
-                MaxFailedAccessAttempts = 2
-
-            };
+            
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -44,9 +38,16 @@ namespace Mvc02
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));   
+                    Configuration.GetConnectionString("DefaultConnection")));
             //services.AddDefaultIdentity<IdentityUser>()
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
+            var lockoutOption = new LockoutOptions()
+            {
+                AllowedForNewUsers = true,
+                DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2),
+                MaxFailedAccessAttempts = 2
+
+            };
             services.AddIdentity<IdentityUser, IdentityRole>(options=>{
                 options.Lockout = lockoutOption;
             })

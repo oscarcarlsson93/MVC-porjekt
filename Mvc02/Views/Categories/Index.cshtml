@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<Mvc02.Models.Category>
 
+
 @{
     ViewData["Title"] = "Index";
+    List<string> test = ViewData["hello"] as List<string>;
 }
 
 <h2>Index</h2>
@@ -20,7 +22,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Name)             
             </th>
             <th></th>
         </tr>

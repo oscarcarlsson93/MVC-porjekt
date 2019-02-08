@@ -22,6 +22,7 @@ namespace Mvc02.Models
 
         public Category Category { get; set; }
         public int CategoryId { get; set; }
+        public string Description { get; set; }
     }
 }
 

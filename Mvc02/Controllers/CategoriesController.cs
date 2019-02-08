@@ -26,14 +26,17 @@ namespace Mvc02.Views
         }
         public async Task<IActionResult> Search(string q)
         {
+
             var xxx = await _context.Categories.Where(x => x.Name == q).ToListAsync();
             return View(xxx);
         }
 
-        public async Task<IActionResult> ShowAllConnectedProducts(int? id)
+        public async Task<IActionResult> ShowAllConnectedProducts(int? name)
         {
-            var xxx = await _context.Product.Include(x => x.Category).Where(x => x.Id == id).ToListAsync();
-            return View(xxx);
+            //var xxx = await _context.Product.Where(x => x.Id == name).Select(x => x.Name).ToListAsync();
+                //Select(x => x.Name).Where(a => a;
+            //var xxx = await _context.Product.Select(x => x.Category).Where(x => x.Id == name).ToListAsync();
+            return View();
         }
 
         // GET: Categories/Details/5

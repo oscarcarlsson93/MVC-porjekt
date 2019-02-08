@@ -22,6 +22,11 @@ namespace Mvc02.Controllers
 
             return View();
         }
+        public IActionResult Jobs()
+        {
+
+            return View();
+        }
 
         public IActionResult Contact()
         {

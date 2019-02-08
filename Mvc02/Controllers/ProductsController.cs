@@ -20,10 +20,35 @@ namespace Mvc02.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            var xxx = await _context.Product.Include(x => x.Category).ToListAsync();
-            return View(xxx);
+            if (id == null)
+            {
+                var xxx = await _context.Product.Include(x => x.Category).ToListAsync();
+                return View(xxx);
+
+            }
+            else if (id == 1)
+            {
+                var xxx = await _context.Product.Include(x => x.Category).OrderBy(x => x.Name).ToListAsync();
+                return View(xxx);
+            }
+            else if (id == 2)
+            {
+                var xxx = await _context.Product.Include(x => x.Category).OrderBy(x => x.CategoryId).ToListAsync();
+                return View(xxx);
+            }
+            else if (id == 3)
+            {
+                var xxx = await _context.Product.Include(x => x.Category).OrderBy(x => x.Price).ToListAsync();
+                return View(xxx);
+            }
+            else
+            {
+                var xxx = await _context.Product.Include(x => x.Category).OrderBy(x => x.Name).ToListAsync();
+                return View(xxx);
+            }
+            
         }
 
         public async Task<IActionResult> Search(string q)
@@ -79,7 +104,7 @@ namespace Mvc02.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,CategoryId,ForSale")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Price,CategoryId,ForSale,Description")] Product product)
         {
             if (ModelState.IsValid)
             {
