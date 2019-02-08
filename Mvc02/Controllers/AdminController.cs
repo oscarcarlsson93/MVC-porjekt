@@ -46,7 +46,20 @@ namespace Mvc02.Controllers
         {
             List<IdentityUser> allUsers = await _auth.GetAllUsers();
 
-            return View();
+            var vm = new UserTableVm();
+
+            foreach(var x in allUsers)
+            {
+                List<string> roles = await _auth.GetRolesForUser(x);
+
+                vm.Rows.Add(new Models.UserWithRoles
+                {
+                    IdentityUser = x,
+                    Roles = roles,
+                });
+            }
+
+            return View(vm);
         }
     }
 }

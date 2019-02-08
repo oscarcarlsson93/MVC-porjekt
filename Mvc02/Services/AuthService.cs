@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Mvc02.Models;
 using Mvc02.Models.ViewModels;
 
 namespace Mvc02.Services
@@ -41,13 +42,35 @@ namespace Mvc02.Services
         internal async Task<List<IdentityUser>> GetAllUsers()
         {
 
+
             List<IdentityUser> users = await _userManager.Users.ToListAsync();
-           var hejsan =  await _userManager.GetRolesAsync(users[0]);
-            List<string> rolesList = new List<string>();
-            //rolesList.Add(hejsan);
-            //return  users[0].Email.ToString();
             return users;
 
+            //List<UserWithRoles> userWithRoles = new List<UserWithRoles>();
+            //List<string> roles = new List<string>();
+            //var userRoles = await _userManager.GetRolesAsync(users[0]);
+
+            //foreach (var item in users)
+            //{
+            //    roles.Add(await _userManager.GetRolesAsync(users[]);
+            //    userWithRoles.Add(item);
+            //}
+
+        
+            //return users;
+
+        }
+
+        internal async Task<List<string>> GetRolesForUser(IdentityUser x)
+        {
+            List<string> roles = new List<string>();
+            var userRoles = await _userManager.GetRolesAsync(x);
+
+            foreach (var item in userRoles)
+            {
+                roles.Add(item);
+            }
+            return roles;
         }
 
         internal async Task CreateRolesAsync(string role)
@@ -59,6 +82,5 @@ namespace Mvc02.Services
             
         }
 
-        // din kod här
     }
 }
