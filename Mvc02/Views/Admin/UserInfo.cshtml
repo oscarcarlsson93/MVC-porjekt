@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Mvc02.Models.ViewModels.UserTableVm>
+﻿@model Mvc02.Models.ViewModels.UserTableVm
 
 @{
     ViewData["Title"] = "Index";
@@ -11,10 +11,10 @@
     <thead>
         <tr>
             <th>
-                UserName
+                Email
             </th>
             <th>
-                Email
+                Roles
             </th>
             <th>
             </th>
@@ -24,14 +24,20 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Rows)
         {
+            
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Rows)
+                    @Html.DisplayFor(modelItem => item.IdentityUser.Email)
                 </td>
                 <td>
-                    @*@Html.DisplayFor(modelItem => item.)*@
+                 @foreach (var x in item.Roles)
+                 {
+                    @Html.DisplayFor(modelItem => x)
+                     <br />
+                 }
+                    
                 </td>
                 <td>
                 </td>
@@ -46,6 +52,7 @@
                     <a asp-action="Delete" asp-route-id="">Delete</a>
                 </td>
             </tr>
+            
         }
     </tbody>
 </table>
