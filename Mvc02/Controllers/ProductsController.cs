@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -205,6 +206,15 @@ namespace Mvc02.Controllers
         private bool ProductExists(int id)
         {
             return _context.Product.Any(e => e.Id == id);
+        }
+        public async Task<IActionResult> Block2(IdentityUser user)
+        {
+            //var user2 = await _context.Users.FindAsync(user.Email);
+            DateTime now = DateTime.Now;
+            DateTime Now5 = now.AddMinutes(1);
+            user.LockoutEnd = Now5;
+            _context.Update(user);
+            return View();
         }
     }
 }

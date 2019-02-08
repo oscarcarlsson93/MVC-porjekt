@@ -50,7 +50,7 @@
                     <a asp-action="Edit" asp-route-id="">Edit</a> |
                     <a asp-action="Details" asp-route-id="">Details</a> |
                     <a asp-action="Delete" asp-route-id="">Delete</a> |
-                    <a asp-action="Block" asp-route-id="">Block user</a>
+                    <a asp-controller="Products" asp-action="Block2" asp-route-email="@item.IdentityUser">Block user</a>
                 </td>
             </tr>
             

@@ -1,12 +1,15 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Mvc02.Data;
 using Mvc02.Models.ViewModels;
 using Mvc02.Services;
+using Mvc02.Controllers;
 
 namespace Mvc02.Controllers
 {
@@ -61,11 +64,7 @@ namespace Mvc02.Controllers
 
             return View(vm);
         }
-        public async Task<IActionResult> Block()
-        {
-            
-            return View();
-        }
+      
         
     }
 }
