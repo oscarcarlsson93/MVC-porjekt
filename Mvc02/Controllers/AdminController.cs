@@ -36,9 +36,9 @@ namespace Mvc02.Controllers
                 ModelState.AddModelError("InvalidUser", "The user does not exist");
                 return View("Index");
             }
-                        
+
             await _auth.AddRoleToUser(addrole);
-                return View("SuccessAddRole", addrole);
+            return View("SuccessAddRole", addrole);
 
         }
 
@@ -48,7 +48,7 @@ namespace Mvc02.Controllers
 
             var vm = new UserTableVm();
 
-            foreach(var x in allUsers)
+            foreach (var x in allUsers)
             {
                 List<string> roles = await _auth.GetRolesForUser(x);
 
@@ -60,6 +60,22 @@ namespace Mvc02.Controllers
             }
 
             return View(vm);
+        }
+
+        public async Task<IActionResult> Edit(string email)
+        {
+            //if (email == null)
+            //{
+            //    return NotFound();
+            //}
+
+            IdentityUser user = await _auth.GetUserById(email);
+            //if (user == null)
+            //{
+            //    return NotFound();
+            //}
+            return View(user);
+
         }
     }
 }

@@ -62,6 +62,12 @@ namespace Mvc02.Services
 
         }
 
+        internal async Task<IdentityUser> GetUserById(string email)
+        {
+            IdentityUser user = await _userManager.FindByEmailAsync(email);
+            return user;
+        }
+
         internal async Task<List<string>> GetRolesForUser(IdentityUser x)
         {
             List<string> roles = new List<string>();
