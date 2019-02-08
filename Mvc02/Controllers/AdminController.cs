@@ -61,5 +61,11 @@ namespace Mvc02.Controllers
 
             return View(vm);
         }
+        public async Task<IActionResult> Block()
+        {
+            
+            return View();
+        }
+        
     }
 }
